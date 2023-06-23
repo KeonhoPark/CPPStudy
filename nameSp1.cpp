@@ -3,15 +3,11 @@
 using namespace std;
 
 namespace BestComImpl{
-	void simpleFunc(void){
-		cout << "bestComImpl" << endl;
-	}
+	void simpleFunc(void);
 }
 
 namespace ProgComImpl{
-	void simpleFunc(void){
-		cout << "progComImpl" << endl;
-	}
+	void simpleFunc(void);
 }
 
 int main(int argc, char** argv) {
@@ -21,3 +17,12 @@ int main(int argc, char** argv) {
 	
 	return 0;
 }
+
+void BestComImpl::simpleFunc(){
+    cout << "bestComImpl" << endl;
+}
+
+void ProgComImpl::simpleFunc(){
+    cout << "progComImpl" << endl;
+}
+
