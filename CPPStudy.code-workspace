@@ -8,5 +8,10 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"xstring": "cpp",
+			"ostream": "cpp"
+		}
+	}
 }
