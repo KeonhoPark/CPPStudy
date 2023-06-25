@@ -1,11 +1,10 @@
 #include<iostream>
-#include<string.h>
-#include<stdlib.h>
+#include<cstring>
 
 using namespace std;
 
 char* makeArray(int len){
-    char* arr = (char*)malloc(len * (int)(sizeof(char)));
+    char* arr = new char[len];
     return arr;
 }
 
@@ -14,5 +13,5 @@ int main(){
     strcpy(arr, "abc");
 
     cout << "arr : " << arr << endl;
-    free(arr);
+    delete []arr;
 }
