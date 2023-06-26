@@ -9,9 +9,14 @@ char* makeArray(int len){
 }
 
 int main(){
-    char* arr = makeArray(3);
-    strcpy(arr, "abc");
+    // char* arr = makeArray(3);
+    // strcpy(arr, "abc");
 
-    cout << "arr : " << arr << endl;
-    delete []arr;
+    int* a = new int;
+    int& ref = *a;
+    ref = 10;
+    cout << "ref : " << ref;
+
+    // cout << "arr : " << arr << endl;
+    delete []a;
 }
