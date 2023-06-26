@@ -1,48 +1,57 @@
 #include<iostream>
 using namespace std;
 
-#define ID_LEN 20
-#define MAX_SPEED 200
-#define FUEL_STEP 2
-#define ACC_STEP 10
-#define BRK_STEP 10
+namespace CAR_CONST{
+    enum{
+        ID_LEN =20,
+        MAX_SPEED =200,
+        FUEL_STEP =2,
+        ACC_STEP =10,
+        BRK_STEP =10,
+    };
+}
 
 struct Car 
 {
-    char gamerID[ID_LEN];
+
+    char gamerID[CAR_CONST::ID_LEN];
     int fuelGauge;
     int curSpeed;
 
-    void showCarState(){
+    void showCarState();
+    void accel();
+    void Break();
+};
+
+void Car::showCarState(){
     cout << "gamerID : " << gamerID << endl;
     cout << "fuelGauge : " << fuelGauge << endl;
     cout << "curSpeed : " << curSpeed << endl;
     }
 
-    void accel(){
-        if(fuelGauge <= 0){
-            return;
-        }
-
-        fuelGauge -= FUEL_STEP;
-
-        if(curSpeed += ACC_STEP >= MAX_SPEED){
-            curSpeed = MAX_SPEED;
-            return;
-        }
-
-        curSpeed += ACC_STEP;
+void Car::accel(){
+    if(fuelGauge <= 0){
+        return;
     }
 
-    void Break(){
-        if(curSpeed < BRK_STEP){
-            curSpeed = 0;
-            return;
-        } 
+    fuelGauge -= CAR_CONST::FUEL_STEP;
 
-        curSpeed -= BRK_STEP;
+    if(curSpeed += CAR_CONST::ACC_STEP >= CAR_CONST::MAX_SPEED){
+        curSpeed = CAR_CONST::MAX_SPEED;
+        return;
     }
-};
+
+    curSpeed += CAR_CONST::ACC_STEP;
+}
+
+void Car::Break(){
+    if(curSpeed < CAR_CONST::BRK_STEP){
+        curSpeed = 0;
+        return;
+    } 
+
+    curSpeed -= CAR_CONST::BRK_STEP;
+}
 
 int main(){
 
