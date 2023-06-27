@@ -97,6 +97,7 @@ int main(){
         cout << "울음 : " << pAnimal->sound() << endl;
         cout << "continue? (y/n)" << endl;
         cin >> cont;
+        delete pAnimal;
     } while (cont == 'y');
     
 
