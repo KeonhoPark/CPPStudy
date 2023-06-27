@@ -21,6 +21,7 @@ public:
     Data operator=(const Data &obj);
     bool operator==(const Data &obj);
     Data operator++();
+    Data operator++(int);
     void showData();
 private:
 	int x, y;
@@ -62,6 +63,14 @@ Data Data::operator++(){
     return newData;
 }
 
+Data Data::operator++(int){
+    Data temp(this->x, this->y);
+    temp.x += 1;
+    temp.y += 1;
+    return temp;
+
+}
+
 void Data::showData(){
     int x, y = 0;
     getData(x, y);
@@ -81,7 +90,7 @@ int main(){
     de.showData();
     bool b = d1.operator==(d2);
     cout << b << endl;
-    Data dpp = ++dpp;
+    Data dpp = d2++;
     dpp.showData();
 
     return 0;
