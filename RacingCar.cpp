@@ -1,44 +1,20 @@
+#include"RacingCar.h"
 #include<iostream>
 #include<cstring>
-using namespace std;
 
-namespace CAR_CONST{
-    enum{
-        ID_LEN =20,
-        MAX_SPEED =200,
-        FUEL_STEP =2,
-        ACC_STEP =10,
-        BRK_STEP =10,
-    };
-}
-
-class Car 
-{
-
-    char gamerID[CAR_CONST::ID_LEN];
-    int fuelGauge;
-    int curSpeed;
-
-    public:
-        void initMembers(char* ID, int fuelGauge, int curSpeed);
-        void showCarState();
-        void accel();
-        void Break();
-};
-
-void Car::initMembers(char* ID, int fuel, int speed){
+void RacingCar::initMembers(char* ID, int fuel, int speed){
     strcpy(gamerID, ID);
     fuelGauge = fuel;
     curSpeed = speed;
 }
 
-void Car::showCarState(){
+void RacingCar::showCarState(){
     cout << "gamerID : " << gamerID << endl;
     cout << "fuelGauge : " << fuelGauge << endl;
     cout << "curSpeed : " << curSpeed << endl;
     }
 
-void Car::accel(){
+void RacingCar::accel(){
     if(fuelGauge <= 0){
         return;
     }
@@ -53,7 +29,7 @@ void Car::accel(){
     curSpeed += CAR_CONST::ACC_STEP;
 }
 
-void Car::Break(){
+void RacingCar::Break(){
     if(curSpeed < CAR_CONST::BRK_STEP){
         curSpeed = 0;
         return;
@@ -64,7 +40,7 @@ void Car::Break(){
 
 int main(){
 
-    Car lambo;
+    RacingCar lambo;
     lambo.initMembers("lambo", 100, 0);
     lambo.showCarState();
     lambo.accel();
@@ -75,7 +51,7 @@ int main(){
     lambo.Break();
     lambo.showCarState();
 
-    Car ferrari;
+    RacingCar ferrari;
     ferrari.initMembers("ferrari", 70, 0);
     ferrari.showCarState();
     ferrari.accel();
