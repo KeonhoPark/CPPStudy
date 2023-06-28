@@ -1,6 +1,4 @@
 #include"RacingCar.h"
-#include<iostream>
-#include<cstring>
 
 void RacingCar::initMembers(char* ID, int fuel, int speed){
     strcpy(gamerID, ID);

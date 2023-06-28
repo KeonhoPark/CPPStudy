@@ -1,6 +1,9 @@
 #ifndef __RACINGCAR_H__
 #define __RACINGCAR_H__
+#include<iostream>
+#include<cstring>
 using namespace std;
+
 
 namespace CAR_CONST{
     enum{
