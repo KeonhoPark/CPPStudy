@@ -18,7 +18,8 @@
 			"xiosbase": "cpp",
 			"xlocale": "cpp",
 			"xutility": "cpp",
-			"utility": "cpp"
+			"utility": "cpp",
+			"list": "cpp"
 		}
 	}
 }
