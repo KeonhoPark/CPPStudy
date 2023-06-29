@@ -8,62 +8,83 @@ private:
     int ypos;
 
 public:
-    Shape(int x, int y){
-        xpos = x;
-        ypos = y;
-    }
-
-    virtual void draw(){
-        cout << "xpos : " << xpos << endl;
-        cout << "ypos : " << ypos << endl;
-    }
-
-    virtual double getArea() const{
-        return 0;
-    }
+    Shape(int x, int y);
+    virtual void draw();
+    virtual double getArea() const;
 };
+
+Shape::Shape(int x, int y){
+    xpos = x;
+    ypos = y;
+}
+
+Shape::virtual void draw(){
+    cout << "xpos : " << xpos << endl;
+    cout << "ypos : " << ypos << endl;
+}
+
+virtual double Shape::getArea() const{
+    return 0;
+}
+
 
 class Circle : public Shape
 {
-private:
-    double radius;
+    private:
+        double radius;
 
-public:
-    Circle(int x, int y, int r) : Shape(x, y){
-        radius = r;
-    }
+    public:
+        Circle(int x, int y, int r) : Shape(x, y);
 
-    void draw(){
-        Shape::draw();
-        cout << "radius : " << radius << endl;
-    }
+        void draw();
 
-    double getArea() const{
-        return radius * radius * 3.14;
-    }
+
+        double getArea() const;
+
+        double getArea() const{
+            return radius * radius * 3.14;
+        }
 };
+
+Circle::Circle(int x, int y, int r) : Shape(x, y){
+    radius = r;
+}
+
+void Circle::draw(){
+    Shape::draw();
+    cout << "radius : " << radius << endl;
+}
+
+double Circle::getArea() const{
+    return radius * radius * 3.14;
+}
 
 class Rectangle : public Shape
 {
-private:
-    int width;
-    int height;
+    private:
+        int width;
+        int height;
 
-public:
-    Rectangle(int x, int y, int w, int h) : Shape(x, y){
-        width = w;
-        height = h;
-    }
-
-    void draw(){
-        Shape::draw();
-        cout << "width : " << width << " " << "height : " << height << endl;
-    }
-
-    double getArea() const{
-        return width * height;
-    }
+    public:
+        Rectangle(int x, int y, int w, int h) : Shape(x, y);
+        void draw();
+        double getArea() const;
 };
+
+Rectangle::Rectangle(int x, int y, int w, int h) : Shape(x, y){
+    width = w;
+    height = h;
+}
+
+void Rectangle::draw(){
+    Shape::draw();
+    cout << "width : " << width << " " << "height : " << height << endl;
+}
+
+double Rectangle::getArea() const{
+    return width * height;
+}
+
 
 int main()
 {

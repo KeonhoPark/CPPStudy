@@ -14,7 +14,11 @@
 			"ostream": "cpp",
 			"iostream": "cpp",
 			"string": "cpp",
-			"c3_2_1": "cpp"
+			"c3_2_1": "cpp",
+			"xiosbase": "cpp",
+			"xlocale": "cpp",
+			"xutility": "cpp",
+			"utility": "cpp"
 		}
 	}
 }
