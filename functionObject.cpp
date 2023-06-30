@@ -21,4 +21,8 @@ int main(){
     // 함수 객체 - Functor = 조건자
     FuncObject fp2;
     fp2(11);
+
+    //람다식
+    auto p = [](int n){cout << "n: " << n << endl;};
+    p(1);
 }
