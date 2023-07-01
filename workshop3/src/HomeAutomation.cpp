@@ -1,21 +1,23 @@
+#include<iostream>
+using namespace std;	
 #include "HomeAutomation.h"
-#include "Appliance.h"
-#include "RiceCooker.h"
-using namespace std;
 
 HomeAutomation::HomeAutomation(){
-    RiceCooker* arrPtr = new (RiceCooker*) [APPLIANCE_MAX_CNT];
-    riceCookerArray = arrPtr;
+    memset(this->riceCookerArray, 0, sizeof(this->riceCookerArray));
     riceCookerCnt = 0;
 }
 
 HomeAutomation::HomeAutomation(const HomeAutomation &r){
-    riceCookerArray = r.getRiceCookerArray();
     riceCookerCnt = r.getRiceCookerCnt();
+    for(int i = 0; i < this->riceCookerCnt; i++){
+        this->riceCookerArray[i] = new RiceCooker(r.riceCookerArray[i]);
+    }
 }
 
 HomeAutomation::~HomeAutomation(){
-    delete riceCookerArray;
+    for(int i = 0; i < sizeof(this->riceCookerArray); i++){
+        delete this->riceCookerArray[i];
+    }
 }
 
 RiceCooker** HomeAutomation::getRiceCookerArray(){
@@ -27,8 +29,20 @@ int HomeAutomation::getRiceCookerCnt() const{
 }
 
 HomeAutomation& HomeAutomation::operator=(const HomeAutomation &r){
-    HomeAutomation temp(r);
-    return temp;
+    if(r == *this){
+        return *this
+    }
+
+    this->riceCookerCnt = r.getRiceCookerCnt();
+
+    for(int i = 0; i < sizeof(this->riceCookerArray); i++){
+        delete this->riceCookerArray[i];
+    }
+
+    for(int i = 0; i < sizeof(this->riceCookerArray); i++){
+        this->riceCookerArray[i] = new RiceCooker(r.riceCookerArray[i]);
+    }
+
 }
 
 int HomeAutomation::searchMachine(string machineName){
