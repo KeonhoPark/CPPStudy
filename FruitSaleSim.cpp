@@ -8,7 +8,7 @@ class FruitSeller{
         int money;
 
     public:
-        void init(int price, int num, int mon);
+        FruitSeller(int applePrice, int numOfApples, int money);
         int sellApple(int income);
         void showSalesResult() const;
 };
@@ -19,15 +19,15 @@ class FruitBuyer{
         int numOfApples;
 
     public:
-        void init(int mon);
+        FruitBuyer(int money, int numOfApples = 0);
         bool buyApple(FruitSeller &seller, int outcome);
         void showBuyResult() const;
 };
 
-void FruitSeller::init(int price, int num, int mon){
-    APPLE_PRICE = price;
-    numOfApples = num;
-    money = mon;
+FruitSeller::FruitSeller(int applePrice, int numOfApples, int money){
+    this->APPLE_PRICE = applePrice;
+    this->numOfApples = numOfApples;
+    this->money = money;
 }
 
 int FruitSeller::sellApple(int income){
@@ -42,9 +42,9 @@ void FruitSeller::showSalesResult() const{
     cout << "판매 수익 : " << money << endl;
 }
 
-void FruitBuyer::init(int mon){
-    money = mon;
-    numOfApples = 0;
+FruitBuyer::FruitBuyer(int money, int numOfApples){
+    this->money = money;
+    this->numOfApples = numOfApples;
 }
 
 bool  FruitBuyer::buyApple(FruitSeller &seller, int outcome){
@@ -63,10 +63,8 @@ void  FruitBuyer::showBuyResult() const{
 }
 
 int main(){
-    FruitSeller seller;
-    seller.init(1000, 30, 0);
-    FruitBuyer buyer;
-    buyer.init(10000);
+    FruitSeller seller(1000, 30, 0);
+    FruitBuyer buyer(10000);
 
     buyer.buyApple(seller, 2000);
 
