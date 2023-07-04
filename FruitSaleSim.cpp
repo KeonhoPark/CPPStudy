@@ -3,7 +3,7 @@ using namespace std;
 
 class FruitSeller{
     private:
-        int APPLE_PRICE;
+        const int APPLE_PRICE;
         int numOfApples;
         int money;
 
@@ -24,11 +24,7 @@ class FruitBuyer{
         void showBuyResult() const;
 };
 
-FruitSeller::FruitSeller(int applePrice, int numOfApples, int money){
-    this->APPLE_PRICE = applePrice;
-    this->numOfApples = numOfApples;
-    this->money = money;
-}
+FruitSeller::FruitSeller(int applePrice, int numOfApples, int money) : APPLE_PRICE(applePrice), numOfApples(numOfApples), money(money){}
 
 int FruitSeller::sellApple(int income){
     int num = income / APPLE_PRICE;
