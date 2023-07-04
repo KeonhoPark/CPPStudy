@@ -7,15 +7,15 @@ class Point{
         int y;
 
     public:
-        bool init(int posX, int posY){
+        Point(int posX, int posY){
             if((0 <= posX && posX <= 100) && (0 <= posY && posY <= 100)){
                 x = posX;
                 y = posY;
-                return true;
+                return;
             }
             else{
                 cout << "잘못된 초기화" << endl;
-                return false;
+                return;
             }
         }
 
@@ -46,14 +46,14 @@ class Rectangle{
         Point downRight;
 
     public:
-        bool init(const Point &ul, const Point &dr){
+        Rectangle(const Point &ul, const Point &dr) : upLeft(ul.getX(), ul.getY()), downRight(dr.getX(), dr.getY()) {
             if((ul.getX() > dr.getX()) || (ul.getY() > dr.getY())) {
                 cout << "잘못된 위치정보" << endl;
-                return false;
+                return;
             }
             upLeft = ul;
             downRight = dr;
-            return true;
+            return;
         }
 
         void showRecInfo(){
@@ -63,12 +63,9 @@ class Rectangle{
 };
 
 int main(){
-    Point p1;
-    p1.init(3, 5);
-    Point p2;
-    p2.init(5, 9);
-    Rectangle rect;
-    rect.init(p1, p2);
+    Point p1(3, 5);
+    Point p2(5, 9);
+    Rectangle rect(p1, p2);
     rect.showRecInfo();
     return 0;
 }
