@@ -13,7 +13,7 @@ class SoSimple{
             cout << "called SoSimple(int n1, int n2)" << endl;
         }
 
-        explicit SoSimple(const SoSimple &ref) : num1(ref.num1), num2(ref.num2){
+        SoSimple(const SoSimple &ref) : num1(ref.num1), num2(ref.num2){
             cout << "called SoSimple(SoSimple &ref)" << endl;
         }
 
