@@ -20,7 +20,8 @@
 			"xutility": "cpp",
 			"utility": "cpp",
 			"list": "cpp",
-			"vector": "cpp"
+			"vector": "cpp",
+			"iosfwd": "cpp"
 		}
 	}
 }
