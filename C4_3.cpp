@@ -27,6 +27,27 @@ class NameCard{
             this->position = position;
         }
 
+        NameCard(NameCard &ref) : position(ref.position){
+            int nameLen = strlen(ref.name) + 1;
+            int companyNameLen = strlen(ref.companyName) + 1;
+            int phoneNumberLen = strlen(ref.phoneNumber) + 1;
+
+            this->name = new char[nameLen];
+            this->companyName = new char[companyNameLen];
+            this->phoneNumber = new char[phoneNumberLen];
+
+            strcpy(this->name, ref.name);
+            strcpy(this->companyName, ref.companyName);
+            strcpy(this->phoneNumber, ref.phoneNumber);
+        }
+
+        ~NameCard(){
+            cout<<"called destructor"<<endl;
+            delete []name;
+            delete []companyName;
+            delete []phoneNumber;
+        }
+
         void showNameCardInfo(){
             cout<<"이름 : "<<this->name<<endl;
             cout<<"회사 : "<<this->companyName<<endl;
@@ -55,15 +76,22 @@ class NameCard{
 };
 
 int main(){
-    NameCard manClerk("lee", "ABCEng", "010-1111-2222", COMP_POS::CLERK);
-    NameCard manSENIOR("park", "ORANGEENG", "010-3333-4444", COMP_POS::SENIOR);
-    NameCard manASSIST("kim", "SoGoodCOmp", "010-5555-6666", COMP_POS::ASSIST);
-    NameCard manMANAGER("hong", "DEFEng", "010-7777-8888", COMP_POS::MANAGER);
+    // NameCard manClerk("lee", "ABCEng", "010-1111-2222", COMP_POS::CLERK);
+    // NameCard manSENIOR("park", "ORANGEENG", "010-3333-4444", COMP_POS::SENIOR);
+    // NameCard manASSIST("kim", "SoGoodCOmp", "010-5555-6666", COMP_POS::ASSIST);
+    // NameCard manMANAGER("hong", "DEFEng", "010-7777-8888", COMP_POS::MANAGER);
 
-    manClerk.showNameCardInfo();
-    manSENIOR.showNameCardInfo();
-    manASSIST.showNameCardInfo();
-    manMANAGER.showNameCardInfo();
+    // manClerk.showNameCardInfo();
+    // manSENIOR.showNameCardInfo();
+    // manASSIST.showNameCardInfo();
+    // manMANAGER.showNameCardInfo();
+
+    NameCard manClerk("lee", "ABCEng", "010-1111-2222", COMP_POS::CLERK);
+    NameCard c1 = manClerk;
+    NameCard manSENIOR("park", "ORANGEENG", "010-3333-4444", COMP_POS::SENIOR);
+    NameCard c2 = manSENIOR;
+    c1.showNameCardInfo();
+    c2.showNameCardInfo();
 
     return 0;
 }
