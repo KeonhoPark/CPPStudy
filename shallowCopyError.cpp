@@ -35,10 +35,16 @@ class Person{
         }
 };
 
+void foo(){
+    int age;
+    char name[1000];
+    cin >> name >> age;
+    Person newPerson(name, age);
+    newPerson.showPersonInfo();
+}
+
 int main(){
-    Person p1("park", 26);
-    Person p2 = p1;
-    p1.showPersonInfo();
-    p2.showPersonInfo();
+    foo();
+    foo();
     return 0;
 }
